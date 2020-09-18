@@ -26,17 +26,17 @@ export const OverviewTab: FC<Props> = ({ clanStats }: Props) => {
                     },
                     {
                         title: 'Officers',
-                        amount: clanStats.members.Officer.length,
+                        amount: clanStats.members.Officer?.length || 0,
                         max: clanStats.memberCount,
                     },
                     {
                         title: 'Members',
-                        amount: clanStats.members.Member.length,
+                        amount: clanStats.members.Member?.length || 0,
                         max: clanStats.memberCount,
                     },
                     {
                         title: 'Recruits',
-                        amount: clanStats.members.Recruit.length,
+                        amount: clanStats.members.Recruit?.length || 0,
                         max: clanStats.memberCount,
                     },
                 ]}

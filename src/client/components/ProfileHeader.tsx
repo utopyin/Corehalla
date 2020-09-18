@@ -6,7 +6,7 @@ import { FavoritesContext, IFavorite } from '../providers/FavoritesProvider';
 interface Props {
     bannerURI: string;
     title: string;
-    favorite: IFavorite;
+    favorite?: IFavorite;
 }
 
 const BannerImg = styled.img`
@@ -43,26 +43,27 @@ export const ProfileHeader: FC<Props> = ({ bannerURI, title, favorite }: Props) 
             <BannerImg src={bannerURI} alt={`${title}_banner`} />
             <Title>{title}</Title>
 
-            {isFavorite(favorite) ? (
-                <AddToFavoritesBtn
-                    href="#"
-                    onClick={() => {
-                        removeFavorite(favorite);
-                    }}
-                    isFav={true}
-                >
-                    Remove Favorite
-                </AddToFavoritesBtn>
-            ) : (
-                <AddToFavoritesBtn
-                    href="#"
-                    onClick={() => {
-                        addFavorite(favorite);
-                    }}
-                >
-                    Add Favorite
-                </AddToFavoritesBtn>
-            )}
+            {favorite &&
+                (isFavorite(favorite) ? (
+                    <AddToFavoritesBtn
+                        href="#"
+                        onClick={() => {
+                            removeFavorite(favorite);
+                        }}
+                        isFav={true}
+                    >
+                        Remove Favorite
+                    </AddToFavoritesBtn>
+                ) : (
+                    <AddToFavoritesBtn
+                        href="#"
+                        onClick={() => {
+                            addFavorite(favorite);
+                        }}
+                    >
+                        Add Favorite
+                    </AddToFavoritesBtn>
+                ))}
         </div>
     );
 };

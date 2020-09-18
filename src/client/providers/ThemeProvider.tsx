@@ -1,17 +1,13 @@
-import React, { createContext, useState, FC } from 'react';
+import React, { createContext, useState, FC, CSSProperties } from 'react';
 
-type ThemeMode = 'light' | 'dark' | 'solarizedDark' | 'solarizedLight';
-type ThemeProps = '--bg' | '--bg-1' | '--bg-2' | '--bg-3' | '--text' | '--accent';
-type Theme = {
-    [k in ThemeProps]: string;
-};
+export type ThemeMode = 'light' | 'dark' | 'solarizedDark' | 'solarizedLight';
+export type ThemeProps = '--bg' | '--bg-1' | '--bg-2' | '--bg-3' | '--text' | '--accent';
 
-export const ThemeContext = createContext<{
-    themeMode: ThemeMode;
-    setThemeMode: React.Dispatch<React.SetStateAction<ThemeMode>>;
-}>(null);
+type Theme = CSSProperties & Record<ThemeProps, string>;
 
-export const themeModes: { [k in ThemeMode]: Theme } = {
+type ThemeModes = Record<ThemeMode, Theme>;
+
+export const themeModes: ThemeModes = {
     dark: {
         '--bg': '#212121',
         '--bg-1': '#353435',
@@ -45,6 +41,11 @@ export const themeModes: { [k in ThemeMode]: Theme } = {
         '--accent': '#2aa198',
     },
 };
+
+export const ThemeContext = createContext<{
+    themeMode: ThemeMode;
+    setThemeMode?: React.Dispatch<React.SetStateAction<ThemeMode>>;
+}>({ themeMode: 'dark' });
 
 interface Props {
     children: React.ReactNode;

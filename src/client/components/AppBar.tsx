@@ -197,7 +197,7 @@ export const ChipsContainer: FC<ChipsContainerProps> = ({ chips }: ChipsContaine
                                       e.preventDefault();
                                       action();
                                   }
-                                : null
+                                : undefined
                         }
                     >
                         {title}

@@ -1,5 +1,5 @@
 import React, { useState, createContext, FC } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useDebounce } from '../hooks/useDebounce';
 import { history } from '../history';
 import { RankedRegion } from 'corehalla.js';
@@ -13,7 +13,7 @@ interface IPlayerSearchContext {
     setPlayerSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const PlayerSearchContext = createContext<IPlayerSearchContext>(null);
+export const PlayerSearchContext = createContext<IPlayerSearchContext | null>(null); // TODO: Move this somewhere else
 
 export const PlayerSearchProvider: FC<Props> = ({ children }: Props) => {
     const { bracket = '1v1', region = 'all', page = '1' } = useParams<{

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useFetchData = <T>(url: string): [T, boolean, boolean] => {
+export const useFetchData = <T>(url: string): [T | undefined, boolean, boolean] => {
     const [data, setData] = useState<T>();
     const [isLoading, setLoading] = useState(true);
     const [isError, setError] = useState(false);

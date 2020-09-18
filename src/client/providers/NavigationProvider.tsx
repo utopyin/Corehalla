@@ -11,9 +11,9 @@ export const pageURIs: { [k in NavigationPage]: string } = {
 };
 
 export const NavigationContext = createContext<{
-    activePage: NavigationPage;
-    setActivePage: React.Dispatch<React.SetStateAction<NavigationPage>>;
-}>(null);
+    activePage?: NavigationPage;
+    setActivePage?: React.Dispatch<React.SetStateAction<NavigationPage>>;
+}>({});
 
 interface Props {
     children: React.ReactNode;

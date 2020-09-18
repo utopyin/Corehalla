@@ -1,5 +1,5 @@
 // Library imports
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC, useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -22,7 +22,7 @@ import { Rankings1v1Tab } from './Rankings1v1Tab';
 
 import { NavigationContext } from '../../providers/NavigationProvider';
 
-type Bracket = '1v1' | '2v2' | 'power1v1' | 'power2v2';
+type Bracket = '1v1' | '2v2' | 'power1v1' | 'power2v2'; // TODO: move this to ch.js
 
 const sectionTransition = {
     in: {
@@ -38,11 +38,11 @@ const sectionTransition = {
 
 export const RankingsPage: FC = () => {
     const { setActivePage } = useContext(NavigationContext);
-    setActivePage('Rankings');
+    setActivePage && setActivePage('Rankings');
 
     // Fetch Rankings Options
     const { bracket = '1v1', region = 'all', page = '1' } = useParams<{
-        bracket: string;
+        bracket: Bracket;
         region: RankedRegion;
         page: string;
     }>();

@@ -1,4 +1,4 @@
-import React, { useContext, CSSProperties, FC } from 'react';
+import React, { useContext, FC } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -12,7 +12,7 @@ import { FavoritesPage } from './pages/FavoritesPage';
 
 import { AnimatePresence } from 'framer-motion';
 
-import { ThemeContext, themeModes } from './providers/ThemeProvider';
+import { ThemeContext, themeModes, ThemeMode } from './providers/ThemeProvider';
 
 const AppWrapper = styled.div`
     min-height: 100vh;
@@ -22,10 +22,10 @@ const AppWrapper = styled.div`
 export const App: FC = () => {
     const location = useLocation();
 
-    const { themeMode } = useContext(ThemeContext);
+    const { themeMode } = useContext<{ themeMode: ThemeMode }>(ThemeContext); // TODO: issue with inferring type of context
 
     return (
-        <AppWrapper id="App" style={themeModes[themeMode] as CSSProperties}>
+        <AppWrapper id="App" style={themeModes[themeMode]}>
             <AnimatePresence exitBeforeEnter initial>
                 <Switch location={location} key={location.pathname}>
                     <Route path="/" exact>

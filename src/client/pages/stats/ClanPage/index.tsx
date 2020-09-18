@@ -45,6 +45,7 @@ export const ClanStatsPage: FC = () => {
             : useMockData<IClanFormat>('ClanStats', 250);
 
     const renderActiveTab = () => {
+        if (!clanStats) return;
         switch (activeTab) {
             case '#members':
                 return <MembersTab clanStats={clanStats} />;
@@ -56,7 +57,7 @@ export const ClanStatsPage: FC = () => {
     return (
         <Page>
             <AppBar
-                title={loading ? 'loading' : clanStats.name || 'Corehalla'}
+                title={loading ? 'loading' : clanStats?.name || 'Corehalla'}
                 tabs={[
                     { title: 'overview', link: `#`, active: activeTab === '#overview' },
                     { title: 'members', link: `#members`, active: activeTab === '#members' },

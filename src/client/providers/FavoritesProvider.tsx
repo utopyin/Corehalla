@@ -23,7 +23,12 @@ export const FavoritesContext = createContext<{
     isFavorite: (value: IFavorite) => boolean;
     addFavorite: (value: IFavorite) => void;
     removeFavorite: (value: IFavorite) => void;
-}>(null);
+}>({
+    favorites: [],
+    isFavorite: (value) => false,
+    addFavorite: (value) => {},
+    removeFavorite: (value) => {},
+});
 
 export const FavoritesProvider: FC<Props> = ({ children }: Props) => {
     const [favorites, setFavorites] = useState<IFavorite[]>(fetchFavorites());
