@@ -95,7 +95,7 @@ interface TabsProps {
     tabs: ITab[];
 }
 
-const Tab = styled.div<{ active?: boolean }>`
+const Tab = styled.div<{ isActive?: boolean }>`
     white-space: nowrap;
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -108,8 +108,8 @@ const Tab = styled.div<{ active?: boolean }>`
         padding: 0 1.5rem;
     }
 
-    ${({ active }) =>
-        active &&
+    ${({ isActive }) =>
+        isActive &&
         `
         a {
             opacity: 1;
@@ -131,7 +131,7 @@ export const TabsContainer: FC<TabsProps> = ({ tabs }: TabsProps) => {
     return (
         <TabsContainerWrapper>
             {tabs.map(({ title, link, active }, i) => (
-                <Tab key={i} active={active}>
+                <Tab key={i} isActive={active}>
                     <Link to={link}>{title}</Link>
                 </Tab>
             ))}
@@ -150,7 +150,7 @@ interface ChipsContainerProps {
     chips: IChip[];
 }
 
-const Chip = styled.div<{ active?: boolean }>`
+const Chip = styled.div<{ isActive?: boolean }>`
     white-space: nowrap;
     margin: 0 0.5rem;
     border-radius: 2rem;
@@ -162,8 +162,8 @@ const Chip = styled.div<{ active?: boolean }>`
         color: var(--text);
     }
 
-    ${({ active }) =>
-        active &&
+    ${({ isActive }) =>
+        isActive &&
         `
         background-color: var(--accent);
         border-color: var(--accent);
@@ -188,7 +188,7 @@ export const ChipsContainer: FC<ChipsContainerProps> = ({ chips }: ChipsContaine
     return (
         <ChipsContainerWrapper>
             {chips.map(({ title, action, active, link }, i) => (
-                <Chip key={i} active={active}>
+                <Chip key={i} isActive={active}>
                     <Link
                         to={link || '#'}
                         onClick={

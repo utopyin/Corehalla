@@ -54,7 +54,7 @@ const NavigationWrapper = styled.nav`
     border-top: 1px solid var(--bg-1);
 `;
 
-const NavigationItem = styled(Link)<{ active?: boolean }>`
+const NavigationItem = styled(Link)<{ isActive?: boolean }>`
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -68,8 +68,8 @@ const NavigationItem = styled(Link)<{ active?: boolean }>`
         fill: var(--text);
     }
 
-    ${({ active }) =>
-        active &&
+    ${({ isActive }) =>
+        isActive &&
         `
         opacity: 1;
     
@@ -85,7 +85,7 @@ export const BottomNavigationBar: FC = () => {
     return (
         <NavigationWrapper>
             {tabs.map(({ title, link, icon }, i) => (
-                <NavigationItem to={link} key={i} active={activePage === title}>
+                <NavigationItem to={link} key={i} isActive={activePage === title}>
                     <Icon path={icon} size={1} />
                     {title}
                 </NavigationItem>
