@@ -10,10 +10,10 @@ interface Props {
 
 interface IPlayerSearchContext {
     playerSearch: string;
-    setPlayerSearch: React.Dispatch<React.SetStateAction<string>>;
+    setPlayerSearch?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const PlayerSearchContext = createContext<IPlayerSearchContext | null>(null); // TODO: Move this somewhere else
+export const PlayerSearchContext = createContext<IPlayerSearchContext>({ playerSearch: '' }); // TODO: Move this somewhere else
 
 export const PlayerSearchProvider: FC<Props> = ({ children }: Props) => {
     const { bracket = '1v1', region = 'all', page = '1' } = useParams<{

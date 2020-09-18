@@ -21,7 +21,8 @@
         "deploy": "firebase deploy --only functions,hosting",
         "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}' --fix",
         "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-        "test": "jest"
+        "test": "jest",
+        "snap": "jest --updateSnapshot"
     },
     "description": "Brawlhalla Stats & Rankings Website",
     "main": "index.js",
@@ -49,6 +50,7 @@
         "css-loader": "^3.4.2",
         "enzyme": "^3.11.0",
         "enzyme-adapter-react-16": "^1.15.4",
+        "enzyme-to-json": "^3.5.0",
         "eslint": "^7.1.0",
         "eslint-config-prettier": "^6.11.0",
         "eslint-loader": "^4.0.2",

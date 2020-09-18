@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BarChartCard should render correctly with no stats 1`] = `
+<Component
+  title="barchart"
+/>
+`;
+
+exports[`BarChartCard should render correctly with stats 1`] = `
+<Component
+  title="barchart"
+>
+  <styled.div
+    key="0"
+  >
+    <div>
+      <styled.span>
+        30
+      </styled.span>
+      <styled.span>
+        stats
+      </styled.span>
+    </div>
+    <Component
+      amount={75}
+      height="0.25rem"
+      width="100%"
+    />
+  </styled.div>
+</Component>
+`;

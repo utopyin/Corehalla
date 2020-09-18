@@ -35,7 +35,7 @@ export const SearchBar: FC<Props> = ({ setShowSearch }: Props) => {
             <SearchInput
                 type="text"
                 onChange={(e) => {
-                    setPlayerSearch(e.target.value);
+                    setPlayerSearch && setPlayerSearch(e.target.value);
                 }}
             />
             <a

@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppBar should render correctly with chips 1`] = `
+<styled.div>
+  <Component />
+  <AnimatePresence>
+    <ForwardRef(MotionComponent)
+      animate={
+        Object {
+          "opacity": 1,
+          "y": 0,
+        }
+      }
+      exit={
+        Object {
+          "opacity": 0,
+          "y": -80,
+        }
+      }
+      transition={
+        Object {
+          "duration": 0.125,
+          "ease": "linear",
+        }
+      }
+    >
+      <Component
+        chips={
+          Array [
+            Object {
+              "active": true,
+              "link": "link",
+              "title": "title",
+            },
+            Object {
+              "link": "link2",
+              "title": "title2",
+            },
+          ]
+        }
+      />
+    </ForwardRef(MotionComponent)>
+  </AnimatePresence>
+</styled.div>
+`;
+
+exports[`AppBar should render correctly with tabs && chips 1`] = `
+<styled.div>
+  <Component />
+  <AnimatePresence>
+    <ForwardRef(MotionComponent)
+      animate={
+        Object {
+          "opacity": 1,
+          "y": 0,
+        }
+      }
+      exit={
+        Object {
+          "opacity": 0,
+          "y": -80,
+        }
+      }
+      transition={
+        Object {
+          "duration": 0.125,
+          "ease": "linear",
+        }
+      }
+    >
+      <Component
+        chips={
+          Array [
+            Object {
+              "active": true,
+              "link": "link",
+              "title": "title",
+            },
+            Object {
+              "link": "link2",
+              "title": "title2",
+            },
+          ]
+        }
+      />
+    </ForwardRef(MotionComponent)>
+  </AnimatePresence>
+</styled.div>
+`;
+
+exports[`AppBar should render correctly with tabs 1`] = `
+<styled.div>
+  <Component />
+  <AnimatePresence>
+    <ForwardRef(MotionComponent)
+      animate={
+        Object {
+          "opacity": 1,
+          "y": 0,
+        }
+      }
+      exit={
+        Object {
+          "opacity": 0,
+          "y": -80,
+        }
+      }
+      transition={
+        Object {
+          "duration": 0.125,
+          "ease": "linear",
+        }
+      }
+    >
+      <Component
+        tabs={
+          Array [
+            Object {
+              "active": true,
+              "link": "link",
+              "title": "title",
+            },
+            Object {
+              "link": "link2",
+              "title": "title2",
+            },
+          ]
+        }
+      />
+    </ForwardRef(MotionComponent)>
+  </AnimatePresence>
+</styled.div>
+`;
+
+exports[`AppBar should render correctly without args 1`] = `
+<styled.div>
+  <Component />
+  <AnimatePresence>
+    <ForwardRef(MotionComponent)
+      animate={
+        Object {
+          "opacity": 1,
+          "y": 0,
+        }
+      }
+      exit={
+        Object {
+          "opacity": 0,
+          "y": -80,
+        }
+      }
+      transition={
+        Object {
+          "duration": 0.125,
+          "ease": "linear",
+        }
+      }
+    />
+  </AnimatePresence>
+</styled.div>
+`;

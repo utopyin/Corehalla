@@ -56,6 +56,7 @@ export const RankingsPage: FC = () => {
             : useMockData<IRanking1v1Format[]>('1v1Rankings', 250);
 
     const renderActiveTab = () => {
+        if (!rankings) return;
         switch (bracket) {
             // case '2v2':
             //     return <Rankings2v2Tab rankings={rankings} />;
