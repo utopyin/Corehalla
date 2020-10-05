@@ -57,7 +57,7 @@ const WinLossContainer = styled.div`
 export const TeamCard: FC<Props> = ({ team }: Props) => {
     return (
         <Card>
-            <TeammateName to={`/stats/player/${team.teammate.id}`}>
+            <TeammateName href={`/stats/player/${team.teammate.id}`}>
                 <RegionIcon src={`/assets/images/icons/flags/${team.region}.png`} alt={team.region} />
                 {team.teammate.name}
             </TeammateName>

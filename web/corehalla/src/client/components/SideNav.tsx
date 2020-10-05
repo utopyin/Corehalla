@@ -8,7 +8,7 @@ import { mdiHome, mdiChevronTripleUp, mdiAccountStar, mdiCog, mdiHistory } from 
 // Providers imports
 import { useLocation } from 'react-router-dom';
 import Link from 'next/link';
-import { devices } from '../util/devices';
+import { useRouter } from 'next/router';
 import { FavoritesContext } from '../providers/FavoritesProvider';
 
 interface BottomNavigationTab {
@@ -109,13 +109,12 @@ const NavSeparator = styled.hr`
 
 export const SideNav: FC = () => {
     const { favorites } = useContext(FavoritesContext);
-    const { pathname } = useLocation();
+    const { pathname } = useRouter();
 
-    if (typeof document === 'undefined') return null;
-    return createPortal(
+    return (
         <NavigationWrapper>
             {tabs.map(({ title, link, icon, exact }, i) => (
-                <NavigationItem to={link} key={i} active={exact ? pathname === link : pathname.startsWith(link)}>
+                <NavigationItem href={link} key={i} active={exact ? pathname === link : pathname.startsWith(link)}>
                     <Icon path={icon} size={1} />
                 </NavigationItem>
             ))}
@@ -123,14 +122,13 @@ export const SideNav: FC = () => {
             {favorites.map(({ id, type, name, thumbURI }) => (
                 <NavigationItem
                     key={`${type}/${id}`}
-                    to={`/stats/${type}/${id}`}
+                    href={`/stats/${type}/${id}`}
                     active={pathname === `/stats/${type}/${id}`}
                 >
                     <img src={thumbURI} alt={name} />
                     <span>{name.substr(0, 3).toUpperCase()}</span>
                 </NavigationItem>
             ))}
-        </NavigationWrapper>,
-        document.querySelector('#sidenav'),
+        </NavigationWrapper>
     );
 };

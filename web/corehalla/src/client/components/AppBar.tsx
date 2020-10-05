@@ -195,7 +195,7 @@ export function ChipsContainer<T extends string>({
             {chips.map(({ displayName, action, active }, i) => (
                 <Chip key={i} active={active}>
                     <Link
-                        to="#"
+                        href="#"
                         onClick={
                             action
                                 ? (e) => {

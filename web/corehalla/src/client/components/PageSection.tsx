@@ -65,7 +65,7 @@ export const PageSection: FC<Props> = ({ children, title, initFoldState }: Props
     return (
         <PageSectionWrapper>
             <SectionTitle
-                to="#"
+                href="#"
                 onClick={(e) => {
                     e.preventDefault();
                     setFoldState((oldState) => !oldState);
