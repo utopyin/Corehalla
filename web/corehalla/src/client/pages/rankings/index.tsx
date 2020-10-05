@@ -1,9 +1,9 @@
 // Library imports
 import React, { FC, useContext, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { useLocation, useParams } from 'react-router-dom';
 import { IRanking1v1Format, RankedRegion } from 'corehalla.js';
 import loadable from '@loadable/component';
+import { useRouter } from 'next/router';
 
 // Hooks
 import { useFetchData } from '../../hooks/useFetchData';
@@ -23,19 +23,19 @@ const Rankings1v1Tab = loadable(() => import('./Rankings1v1Tab'), {
 
 type Bracket = '1v1' | '2v2' | 'power1v1' | 'power2v2';
 
-export const RankingsPage: FC = () => {
-    useEffect(() => {
-        setActivePage('Rankings');
-    }, []);
-
+const RankingsPage: FC = () => {
     // Fetch Rankings Options
-    const { bracket = '1v1', region = 'all', page = '1' } = useParams<{
+
+    const router = useRouter();
+    // TODO: query folders
+    const { bracket = '1v1', region = 'all', page = '1', p = '' } = router.query as {
         bracket: Bracket;
         region: RankedRegion;
         page: string;
-    }>();
-    const { search } = useLocation();
-    const playerSearch = qs.parse(search.substring(1)).p || '';
+        p: string;
+    };
+    const playerSearch = qs.parse(p);
+    console.log(bracket, region, page, p);
 
     // Fetch Rankings
     const [rankings, loading] =
@@ -75,3 +75,5 @@ export const RankingsPage: FC = () => {
         </>
     );
 };
+
+export default RankingsPage;

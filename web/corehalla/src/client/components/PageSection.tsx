@@ -71,12 +71,14 @@ export const PageSection: FC<Props> = ({ children, title, initFoldState }: Props
                     setFoldState((oldState) => !oldState);
                 }}
             >
-                {title}
-                {foldState ? (
-                    <Icon path={mdiUnfoldLessHorizontal} size={1} />
-                ) : (
-                    <Icon path={mdiUnfoldMoreHorizontal} size={1} />
-                )}
+                <div>
+                    {title}
+                    {foldState ? (
+                        <Icon path={mdiUnfoldLessHorizontal} size={1} />
+                    ) : (
+                        <Icon path={mdiUnfoldMoreHorizontal} size={1} />
+                    )}
+                </div>
             </SectionTitle>
             <AnimatePresence>
                 {foldState && (

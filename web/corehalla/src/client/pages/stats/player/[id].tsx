@@ -1,9 +1,9 @@
 // Library imports
 import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
-import { useParams } from 'react-router-dom';
 import { IPlayerStatsFormat, Weapon } from 'corehalla.js';
 import loadable from '@loadable/component';
+import { useRouter } from 'next/router';
 
 // Hooks
 import { useFetchData } from '../../../hooks/useFetchData';
@@ -25,9 +25,13 @@ const LegendsTab = loadable(() => import('./LegendsTab'), {
 
 type PlayerStatsTab = 'overview' | 'teams' | 'legends' | 'weapons';
 
-export const PlayerPage: FC = () => {
+const PlayerPage: FC = () => {
     // Fetch Clan ID
-    const { id: playerId } = useParams<{ id: string }>();
+    const router = useRouter();
+    // TODO: query folders
+    const { id: playerId } = router.query as {
+        id: string;
+    };
 
     // Fetch Player Stats
     const [playerStats, loading] =
@@ -103,3 +107,5 @@ export const PlayerPage: FC = () => {
         </>
     );
 };
+
+export default PlayerPage;

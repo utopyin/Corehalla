@@ -7,16 +7,6 @@ export type Theme = {
     [k in ThemeProps]: string;
 };
 
-export const ThemeContext = createContext<{
-    getTheme: () => Theme;
-    getThemeStr: () => string;
-    setThemeMode: React.Dispatch<React.SetStateAction<ThemeMode>>;
-}>({
-    getTheme: () => themeModes[0],
-    getThemeStr: () => '',
-    setThemeMode: () => {},
-});
-
 export const themeModes: { [k in ThemeMode]: Theme } = {
     dark: {
         bg: '#212121',
@@ -52,6 +42,19 @@ export const themeModes: { [k in ThemeMode]: Theme } = {
     },
 };
 
+const getThemeStr = (theme: ThemeMode) =>
+    Object.entries(themeModes[theme]).reduce<string>((acc, [key, value]) => `${acc} --${key}: ${value};`, '');
+
+export const ThemeContext = createContext<{
+    getTheme: () => Theme;
+    getThemeStr: () => string;
+    setThemeMode: React.Dispatch<React.SetStateAction<ThemeMode>>;
+}>({
+    getTheme: () => themeModes[0],
+    getThemeStr: () => getThemeStr('dark'),
+    setThemeMode: () => {},
+});
+
 interface Props {
     children: React.ReactNode;
 }
@@ -60,8 +63,10 @@ export const ThemeProvider: FC<Props> = ({ children }: Props) => {
     const [themeMode, setThemeMode] = useState<ThemeMode>('dark');
 
     const getTheme = () => themeModes[themeMode];
-    const getThemeStr = () =>
-        Object.entries(themeModes[themeMode]).reduce<string>((acc, [key, value]) => `${acc} --${key}: ${value};`, '');
 
-    return <ThemeContext.Provider value={{ getTheme, getThemeStr, setThemeMode }}>{children}</ThemeContext.Provider>;
+    return (
+        <ThemeContext.Provider value={{ getTheme, getThemeStr: () => getThemeStr(themeMode), setThemeMode }}>
+            {children}
+        </ThemeContext.Provider>
+    );
 };

@@ -9,11 +9,11 @@ import { ThemeContext, ThemeProvider } from './providers/ThemeProvider';
 import { PlayerSearchProvider } from './providers/PlayerSearchProvider';
 import { FavoritesProvider } from './providers/FavoritesProvider';
 
-const GlobalStyle = createGlobalStyle<{ theme: string }>`
-    :root {
-    ${({ theme }) => theme}
-    }
-`;
+// const GlobalStyle = createGlobalStyle<{ theme: string }>`
+//     html {
+//         ${({ theme }) => theme}
+//     }
+// `;
 
 const Wrapper = styled.div`
     height: 100%;
@@ -47,7 +47,7 @@ const _App: FC<AppProps> = ({ Component, pageProps, router }: AppProps) => {
 
     return (
         <>
-            <GlobalStyle theme={getThemeStr()} />
+            {/* <GlobalStyle theme={getThemeStr()} /> */}
             <AppWrapper>
                 <Wrapper id="App">
                     <motion.div key={router.route} animate={{ opacity: 1 }} initial={{ opacity: 0 }}>

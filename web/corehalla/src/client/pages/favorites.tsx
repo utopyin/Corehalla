@@ -4,14 +4,14 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 
-import { FavoritesContext } from '../../providers/FavoritesProvider';
+import { FavoritesContext } from '../providers/FavoritesProvider';
 
 // Components imports
-import { Page } from '../../components/Page';
-import { AppBar } from '../../components/AppBar';
-import { SideNav } from '../../components/SideNav';
+import { Page } from '../components/Page';
+import { AppBar } from '../components/AppBar';
+import { SideNav } from '../components/SideNav';
 
-export const FavoritesPage: FC = () => {
+const FavoritesPage: FC = () => {
     const { favorites } = useContext(FavoritesContext);
 
     return (
@@ -36,3 +36,5 @@ export const FavoritesPage: FC = () => {
         </Page>
     );
 };
+
+export default FavoritesPage;
