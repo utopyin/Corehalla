@@ -1,7 +1,6 @@
 // Library imports
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
-
+import Link from 'next/link';
 // Components imports
 import { StatSmall, StatMedium, StatDesc } from './TextStyles';
 
@@ -24,7 +23,7 @@ export const SectionClanOverviewSmallContent: FC<Props> = ({
 }: Props) => {
     return (
         <div>
-            <Link to={`/stats/clan/${id}`}>
+            <Link href={`/stats/clan/${id}`}>
                 <StatMedium>{name}</StatMedium>
             </Link>
             <div>

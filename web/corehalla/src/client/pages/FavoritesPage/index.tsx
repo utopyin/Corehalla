@@ -1,6 +1,6 @@
 // Library imports
 import React, { FC, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 
@@ -24,7 +24,7 @@ export const FavoritesPage: FC = () => {
                 <motion.div key="page" animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
                     <main>
                         {favorites.map((fav) => (
-                            <Link key={fav.id} to={`/stats/${fav.type}/${fav.id}`}>
+                            <Link key={fav.id} href={`/stats/${fav.type}/${fav.id}`}>
                                 {fav.name}
                                 <img src={fav.thumbURI} alt={fav.name} />
                             </Link>

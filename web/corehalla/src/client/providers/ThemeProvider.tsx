@@ -11,7 +11,11 @@ export const ThemeContext = createContext<{
     getTheme: () => Theme;
     getThemeStr: () => string;
     setThemeMode: React.Dispatch<React.SetStateAction<ThemeMode>>;
-}>(null);
+}>({
+    getTheme: () => themeModes[0],
+    getThemeStr: () => '',
+    setThemeMode: () => {},
+});
 
 export const themeModes: { [k in ThemeMode]: Theme } = {
     dark: {

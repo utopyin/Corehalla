@@ -1,8 +1,7 @@
 // Library imports
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-
+import Link from 'next/link';
 // Components imports
 import { I2v2TeamFormat } from 'corehalla.js';
 import { StatDesc, StatSmall } from './TextStyles';

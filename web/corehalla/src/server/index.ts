@@ -1,6 +1,23 @@
-import 'firebase-admin';
+import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
+import next from 'next';
 
-import { app } from './app';
+admin.initializeApp();
 
-exports.app = functions.https.onRequest(app);
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({
+    dev,
+    conf: { distDir: 'dist/client' },
+});
+const handle = app.getRequestHandler();
+
+const server = functions.https.onRequest((request, response) => {
+    console.log('File: ' + request.originalUrl);
+    return app.prepare().then(() => handle(request, response));
+});
+
+const nextjs = {
+    server,
+};
+
+export { nextjs };

@@ -1,15 +1,15 @@
 // Library imports
 import React, { FC, useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { StatSmall, StatDesc } from '../../components/TextStyles';
+import { StatSmall, StatDesc } from '../components/TextStyles';
 import styled from 'styled-components';
 
 // Components imports
-import { LandingLayout } from '../../layout';
-import { PlayerSearchContext } from '../../providers/PlayerSearchProvider';
-import { devices } from '../../util/devices';
-import { useScrollPosition } from '../../hooks/useScrollPosition';
-import { Link } from 'react-router-dom';
+import { LandingLayout } from '../layout';
+import { PlayerSearchContext } from '../providers/PlayerSearchProvider';
+import { devices } from '../util/devices';
+import { useScrollPosition } from '../hooks/useScrollPosition';
+import Link from 'next/link';
 
 const LandingNavbar = styled.nav<{ hasScrolled: boolean }>`
     position: fixed;
@@ -132,8 +132,9 @@ const Blip = styled.p`
 //     border: 1px solid var(--text-2);
 // `;
 
-export const IndexPage: FC = () => {
+const IndexPage: FC = () => {
     const { setPlayerSearch } = useContext(PlayerSearchContext);
+
     const [hasScrolled, setHasScrolled] = useState(false);
     useScrollPosition(
         ({ currScrollPos }) => {
@@ -148,14 +149,14 @@ export const IndexPage: FC = () => {
                 <title>Index • Corehalla</title>
             </Helmet>
             <LandingNavbar hasScrolled={hasScrolled}>
-                <Link to="/">
+                <Link href="/">
                     <MainLogo src="/assets/images/logo.png" alt="" />
                 </Link>
                 <ul>
-                    <Link to="/">Home</Link>
-                    <Link to="/rankings">Rankings</Link>
-                    <Link to="/favorites">Favorites</Link>
-                    <NavCTA to="#">Login</NavCTA>
+                    <Link href="/">Home</Link>
+                    <Link href="/rankings">Rankings</Link>
+                    <Link href="/favorites">Favorites</Link>
+                    <NavCTA href="#">Login</NavCTA>
                 </ul>
             </LandingNavbar>
             {/* <ScrollIndicator>lol</ScrollIndicator> */}
@@ -207,3 +208,5 @@ export const IndexPage: FC = () => {
         </LandingLayout>
     );
 };
+
+export default IndexPage;

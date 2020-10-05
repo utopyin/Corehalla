@@ -87,22 +87,20 @@ export function MainLayout<T extends string, U extends string>({
                         {loading ? (
                             <Loader key="loader" />
                         ) : (
-                            <motion.div key="page" animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
-                                <main>
-                                    <AnimatePresence exitBeforeEnter initial>
-                                        <motion.div
-                                            key={activeTab}
-                                            animate="in"
-                                            exit="out"
-                                            initial="init"
-                                            variants={sectionTransition}
-                                            transition={{ default: { duration: 0.25, ease: 'easeInOut' } }}
-                                        >
-                                            {renderActiveTab()}
-                                        </motion.div>
-                                    </AnimatePresence>
-                                </main>
-                            </motion.div>
+                            <main>
+                                <AnimatePresence exitBeforeEnter initial>
+                                    <motion.div
+                                        key={activeTab}
+                                        animate="in"
+                                        exit="out"
+                                        initial="init"
+                                        variants={sectionTransition}
+                                        transition={{ default: { duration: 0.25, ease: 'easeInOut' } }}
+                                    >
+                                        {renderActiveTab()}
+                                    </motion.div>
+                                </AnimatePresence>
+                            </main>
                         )}
                     </AnimatePresence>
                 </Page>

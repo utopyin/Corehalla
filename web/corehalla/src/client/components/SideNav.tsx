@@ -6,7 +6,8 @@ import { Icon } from '@mdi/react';
 import { mdiHome, mdiChevronTripleUp, mdiAccountStar, mdiCog, mdiHistory } from '@mdi/js';
 
 // Providers imports
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import Link from 'next/link';
 import { devices } from '../util/devices';
 import { FavoritesContext } from '../providers/FavoritesProvider';
 

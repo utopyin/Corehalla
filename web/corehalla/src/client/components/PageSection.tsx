@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { AnimatePresence, motion } from 'framer-motion';
 import Icon from '@mdi/react';
 import { mdiChevronUp, mdiUnfoldLessHorizontal, mdiUnfoldMoreHorizontal } from '@mdi/js';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 interface Props {
     children: React.ReactNode;

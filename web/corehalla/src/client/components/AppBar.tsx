@@ -1,6 +1,7 @@
 // Library imports
 import React, { FC, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import Link from 'next/link';
 import styled from 'styled-components';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { Icon } from '@mdi/react';
@@ -58,19 +59,19 @@ export const Navbar: FC<NavbarProps> = ({ title }: NavbarProps) => {
                 <>
                     {title ? (
                         <div>
-                            <Link
-                                to="#"
+                            {/* TODO: Button */}
+                            <button
                                 onClick={(e) => {
                                     e.preventDefault();
                                     history.goBack();
                                 }}
                             >
                                 <Icon path={mdiArrowLeft} size={1} color="var(--text)" />
-                            </Link>
+                            </button>
                             <NavbarTitle>{title}</NavbarTitle>
                         </div>
                     ) : (
-                        <Link to="/">
+                        <Link href="/">
                             <NavbarTitleLogo src="/assets/images/logo.png" alt="corehalla logo" />
                         </Link>
                     )}
@@ -130,13 +131,11 @@ const TabsContainerWrapper = styled.div`
 `;
 
 export function TabsContainer<T extends string>({ tabs }: TabsProps<T>): React.ReactElement<TabsProps<T>> {
-    const history = useHistory();
-
     return (
         <TabsContainerWrapper>
             {tabs.map(({ displayName, link, active }, i) => (
                 <Tab key={i} active={active}>
-                    <Link to={({ pathname }) => `${pathname}${link}`} replace>
+                    <Link href={link} replace>
                         {displayName}
                     </Link>
                 </Tab>

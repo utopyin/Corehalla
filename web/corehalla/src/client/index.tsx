@@ -1,20 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { SharedApp } from '../shared';
-import { Router } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
+import React, { FC } from 'react';
 
-import { SSRProvider } from '../shared/providers/SSRProvider';
+import { App } from './App';
+import { FavoritesProvider } from './providers/FavoritesProvider';
+import { PlayerSearchProvider } from './providers/PlayerSearchProvider';
+import { ThemeProvider } from './providers/ThemeProvider';
 
-const history = createBrowserHistory();
-
-const rootElement = document.getElementById('root');
-ReactDOM.render(
-    <Router history={history}>
-        <SSRProvider>
-            {/* TODO: Might cause a problem on the server, since provider is only on the client */}
-            <SharedApp />
-        </SSRProvider>
-    </Router>,
-    rootElement,
+export const SharedApp: FC = () => (
+    <ThemeProvider>
+        <FavoritesProvider>
+            <PlayerSearchProvider>
+                <App />
+            </PlayerSearchProvider>
+        </FavoritesProvider>
+    </ThemeProvider>
 );

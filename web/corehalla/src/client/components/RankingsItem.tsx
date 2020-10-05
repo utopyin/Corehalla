@@ -5,8 +5,7 @@ import { IClanMemberFormat, IRanking1v1Format, IRanking2v2Format } from 'corehal
 
 import { StatLarge, StatDesc, StatSmall, StatMedium } from './TextStyles';
 import { BarChart } from './Charts';
-import { Link } from 'react-router-dom';
-
+import Link from 'next/link';
 import { formatEpoch } from '../util';
 
 const BarChartWrapper = styled.div`
@@ -42,7 +41,7 @@ export const RankingsItem1v1: FC<Props1v1> = ({ player }: Props1v1) => {
         <Wrapper>
             <StatsWrapper>
                 <div>
-                    <Link to={`/stats/player/${player.id}`}>
+                    <Link href={`/stats/player/${player.id}`}>
                         <StatMedium>
                             {player.rank} - {player.name}
                         </StatMedium>
@@ -80,10 +79,10 @@ export const RankingsItem2v2: FC<Props2v2> = ({ team }: Props2v2) => {
         <Wrapper>
             <StatsWrapper>
                 <div>
-                    <Link to={`/stats/player/${team.players[0].id}`}>
+                    <Link href={`/stats/player/${team.players[0].id}`}>
                         <StatMedium>{team.players[0].name}</StatMedium>
                     </Link>
-                    <Link to={`/stats/player/${team.players[1].id}`}>
+                    <Link href={`/stats/player/${team.players[1].id}`}>
                         <StatMedium>{team.players[1].name}</StatMedium>
                     </Link>
                     <p>
@@ -120,7 +119,7 @@ export const RankingsItemClan: FC<PropsClan> = ({ player, clanXP }: PropsClan) =
         <Wrapper>
             <StatsWrapper>
                 <div>
-                    <Link to={`/stats/player/${player.id}`}>
+                    <Link href={`/stats/player/${player.id}`}>
                         <StatMedium>{player.name}</StatMedium>
                     </Link>
                     <p>
