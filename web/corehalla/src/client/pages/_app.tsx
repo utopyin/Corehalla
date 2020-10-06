@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 
-import { ThemeContext, ThemeProvider } from './providers/ThemeProvider';
-import { PlayerSearchProvider } from './providers/PlayerSearchProvider';
-import { FavoritesProvider } from './providers/FavoritesProvider';
+import { ThemeContext, ThemeProvider } from '../providers/ThemeProvider';
+import { PlayerSearchProvider } from '../providers/PlayerSearchProvider';
+import { FavoritesProvider } from '../providers/FavoritesProvider';
 
 // const GlobalStyle = createGlobalStyle<{ theme: string }>`
 //     html {
