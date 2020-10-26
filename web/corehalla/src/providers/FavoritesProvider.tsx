@@ -14,6 +14,7 @@ export interface IFavorite {
 }
 
 const fetchFavorites = (): IFavorite[] => {
+    if (typeof window === 'undefined') return [];
     const str = localStorage?.getItem('favoritesStats') || '[]';
     return JSON.parse(str);
 };

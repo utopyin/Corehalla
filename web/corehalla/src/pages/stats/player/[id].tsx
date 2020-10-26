@@ -26,7 +26,7 @@ const LegendsTab = loadable(() => import('./LegendsTab'), {
 type PlayerStatsTab = 'overview' | 'teams' | 'legends' | 'weapons';
 
 const PlayerPage: FC = () => {
-    // Fetch Clan ID
+    // Fetch Player ID
     const router = useRouter();
     // TODO: query folders
     const { id: playerId } = router.query as {

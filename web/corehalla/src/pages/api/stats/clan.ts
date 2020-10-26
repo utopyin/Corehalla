@@ -1,5 +1,5 @@
 import * as express from 'express';
-import { bhAPI } from '../../bhAPI';
+import { bhAPI } from '../../../bhAPI';
 
 const router = express.Router();
 

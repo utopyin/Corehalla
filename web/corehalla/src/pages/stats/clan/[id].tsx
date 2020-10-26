@@ -1,7 +1,7 @@
 // Library imports
 import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
-import { useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import { ClanRank, IClanFormat } from 'corehalla.js';
 import loadable from '@loadable/component';
 
@@ -24,7 +24,10 @@ type ClanStatsTab = 'overview' | 'members';
 
 export const ClanPage: FC = () => {
     // Fetch Clan ID
-    const { id: clanId } = useParams<{ id: string }>();
+    const router = useRouter();
+    const { id: clanId } = router.query as {
+        id: string;
+    };
 
     // Fetch Clan Stats
     const [clanStats, loading] =

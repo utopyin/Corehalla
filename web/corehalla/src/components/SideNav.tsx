@@ -1,12 +1,10 @@
 // Library imports
 import React, { FC, useContext } from 'react';
-import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 import { Icon } from '@mdi/react';
-import { mdiHome, mdiChevronTripleUp, mdiAccountStar, mdiCog, mdiHistory } from '@mdi/js';
+import { mdiHome, mdiChevronTripleUp, mdiAccountStar } from '@mdi/js';
 
 // Providers imports
-import { useLocation } from 'react-router-dom';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FavoritesContext } from '../providers/FavoritesProvider';

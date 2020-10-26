@@ -1,5 +1,4 @@
 import React, { useContext, CSSProperties, FC, PropsWithChildren } from 'react';
-import { Switch, Route, useLocation } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { motion } from 'framer-motion';
 import { AppProps } from 'next/app';

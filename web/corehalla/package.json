@@ -26,9 +26,7 @@
         "url": "https://github.com/Corehalla/Corehalla.git"
     },
     "scripts": {
-        "dev:client": "next src/client",
-        "dev:server": "babel src/server --out-dir dist/server --source-maps --watch",
-        "dev": "npm run dev:client & npm run dev:server",
+        "dev": "next",
         "preserve": "npm run build",
         "serve": "cross-env NODE_ENV=production firebase serve --only functions,hosting",
         "predeploy": "rimraf dist/ && npm run build",

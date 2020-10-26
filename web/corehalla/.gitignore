@@ -5,10 +5,11 @@ node_modules/
 .firebase/
 **/*.log
 
-# Build directories
-functions/
+# Build directory
 dist/
-devServer/
+
+# Next
+.next/
 
 # Environment variables
 **/*.env

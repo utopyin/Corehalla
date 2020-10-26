@@ -1,5 +1,5 @@
 // Library imports
-import React, { FC, useContext, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import { IRanking1v1Format, RankedRegion } from 'corehalla.js';
 import loadable from '@loadable/component';
@@ -28,10 +28,11 @@ const RankingsPage: FC = () => {
 
     const router = useRouter();
     // TODO: query folders
-    const { bracket = '1v1', region = 'all', page = '1', p = '' } = router.query as {
-        bracket: Bracket;
-        region: RankedRegion;
-        page: string;
+    const {
+        query: [bracket = '1v1', region = 'all', page = '1'],
+        p = '',
+    } = router.query as {
+        query: [Bracket, RankedRegion, string];
         p: string;
     };
     const playerSearch = qs.parse(p);
