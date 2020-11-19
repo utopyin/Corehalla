@@ -3,7 +3,7 @@ import React, { FC, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Icon } from '@mdi/react';
 import { mdiArrowLeft, mdiMagnify } from '@mdi/js';
 
@@ -131,13 +131,12 @@ const TabsContainerWrapper = styled.div`
 `;
 
 export function TabsContainer<T extends string>({ tabs }: TabsProps<T>): React.ReactElement<TabsProps<T>> {
+    console.log(tabs);
     return (
         <TabsContainerWrapper>
             {tabs.map(({ displayName, link, active }, i) => (
                 <Tab key={i} active={active}>
-                    <Link href={link} replace>
-                        {displayName}
-                    </Link>
+                    <Link href={link}>{displayName}</Link>
                 </Tab>
             ))}
         </TabsContainerWrapper>
